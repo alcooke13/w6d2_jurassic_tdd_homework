@@ -26,4 +26,15 @@ Park.prototype.mostVisitors = function () {
     return (dinoMostVisitor);
     }
 };
+
+Park.prototype.findSpecies = function (dinoName) {
+    const foundSpecies = [];
+    for (let dino of this.dinoCollection) {
+        if (dino.species === dinoName) {
+            foundSpecies.push(dino)
+        }
+    }
+    return foundSpecies;
+};
+
 module.exports = Park
