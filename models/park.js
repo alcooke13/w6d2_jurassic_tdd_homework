@@ -31,10 +31,22 @@ Park.prototype.findSpecies = function (dinoName) {
     const foundSpecies = [];
     for (let dino of this.dinoCollection) {
         if (dino.species === dinoName) {
-            foundSpecies.push(dino)
+            foundSpecies.push(dino);
         }
     }
     return foundSpecies;
 };
+
+Park.prototype.totalVisitorsDay = function () {
+    let totalVisitors = 0;
+    for (let dino of this.dinoCollection) {
+        totalVisitors += dino.guestsAttractedPerDay;
+    }
+    return totalVisitors;
+}
+
+Park.prototype.totalVisitorsYear = function () {
+    return this.totalVisitorsDay() * 365;
+}
 
 module.exports = Park
