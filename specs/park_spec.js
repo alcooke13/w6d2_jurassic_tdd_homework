@@ -8,6 +8,8 @@ describe('Park', function() {
   beforeEach(function () {
   park = new Park('Jurassic Park', 30);
   dinosaur1 = new Dinosaur('t-rex', 'carnivore', 50);
+  dinosaur2 = new Dinosaur('triceratops', 'herbivore', 40);
+  dinosaur3 = new Dinosaur('pterodactyl', 'carnivore', 45);
   });
 
   it('should have a name', function() {
@@ -37,7 +39,13 @@ describe('Park', function() {
     assert.deepStrictEqual(actual, park.dinoCollection);
   });
 
-  it('should be able to find the dinosaur that attracts the most visitors');
+  it('should be able to find the dinosaur that attracts the most visitors', function () {
+    park.addToCollection(dinosaur1);
+    park.addToCollection(dinosaur2);
+    park.addToCollection(dinosaur3);
+    const actual = park.mostVisitors();
+    assert.deepStrictEqual(actual, dinosaur1);
+  });
 
   it('should be able to find all dinosaurs of a particular species');
 
